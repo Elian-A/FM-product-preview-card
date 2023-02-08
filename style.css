@@ -1,0 +1,108 @@
+:root {
+  --mobile-layout: 375px;
+  --desktop-layout: 1440px;
+
+  --clr-primary-800: hsl(158, 36%, 37%); /*Dark Cyan*/
+  --clr-primary-900: hsl(158, 36%, 20%); /*Dark Cyan*/
+  --clr-secundary-400: hsl(30, 38%, 92%); /*Cream*/
+
+  --clr-neutral-900: hsl(212, 21%, 14%); /*Very Dark Blue*/
+  --clr-neutral-700: hsl(228, 12%, 48%); /*Dark grayish blue*/
+  --clr-neutral-100: hsl(0, 0%, 100%); /*White*/
+
+  --fs-400: 0.875rem; /*14px Paragraph*/
+  --fs-800: 2rem; /*Title*/
+
+  --ff-base: "Montserrat", sans-serif;
+  --ff-accent: "Fraunces", serif;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+/***************/
+/***Styles***/
+/***************/
+main {
+  display: grid;
+  padding: 1rem;
+  place-content: center;
+  background-color: var(--clr-secundary-400);
+  min-height: 100%;
+  font-family: var(--ff-base);
+  font-size: var(--fs-400);
+  color: var(--clr-neutral-700);
+}
+
+.product-card {
+  display: grid;
+  background-color: var(--clr-neutral-100);
+  border-radius: 0.5rem;
+  overflow: auto;
+  max-width: 600px;
+}
+
+.product-card__content {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .product-card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.content__category {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 0.75rem;
+}
+
+.content__title {
+  color: var(--clr-neutral-900);
+  font-family: var(--ff-accent);
+  font-size: var(--fs-800);
+  line-height: 1;
+}
+
+p {
+  line-height: 1.7;
+}
+
+.content__prices {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.current-price {
+  font-size: var(--fs-800);
+  font-family: var(--ff-accent);
+  color: var(--clr-primary-800);
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--clr-primary-800);
+  color: var(--clr-neutral-100);
+  font-weight: var(--fw-bold);
+  padding: 1rem;
+}
+
+.button[data-icon="shopping-cart"]::before {
+  content: "";
+  width: 15px;
+  height: 16px;
+  background-image: url("/images/icon-cart.svg");
+  margin-right: 0.5rem;
+}
+
+.button:is(:hover, :focus) {
+  background-color: var(--clr-primary-900);
+}
